@@ -1,3 +1,3 @@
 #Laravel Saloon
 
-Laravel saloon makes easy the API Integrations
+A package that makes easy the API Integrations by using connectors and requests

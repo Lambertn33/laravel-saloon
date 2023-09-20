@@ -17,5 +17,6 @@ use App\Http\Controllers\PostsController;
 
 Route::controller(PostsController::class)->prefix('posts')->group(function () {
     Route::get('/', 'index');
+    Route::post('/', 'store');
     Route::get('/{postId}', 'show');
 });

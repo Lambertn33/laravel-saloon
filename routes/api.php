@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
@@ -15,7 +16,12 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::controller(PostsController::class)->prefix('posts')->group(function () {
+Route::controller(AuthController::class)->prefix('auth')->group(function () {
+    Route::post('/login', 'login');
+    Route::post('/logout', 'logout');
+});
+
+Route::middleware('auth:api')->controller(PostsController::class)->prefix('posts')->group(function () {
     Route::get('/', 'index');
     Route::post('/', 'store');
     Route::get('/{postId}', 'show');
